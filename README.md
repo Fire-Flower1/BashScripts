@@ -4,8 +4,10 @@ I would recommend adding the file you keep these in to the PATH variable, since 
 For example I keep them in a file I named cbin, which stands for custom binaries.
 
 This repo includes the scripts,
--chmodded
--and more to come!
+
+* chmodded
+
+* and more to come!
 
 
 ### Chmodded Utility
