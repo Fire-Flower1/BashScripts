@@ -1,180 +1,182 @@
 #! /bin/bash
 
+CMLOGPATH=~/clog/chmodded.log
+
 if [[ $1 == -r ]]; then
 	chmod 444 $2
 	echo $2 "now set to read-only"
-	echo "">>~/clog/chmodded.log
-	echo $2 "File permissions changed: ">>~/clog/chmodded.log
-	ls -l $2 >> ~/clog/chmodded.log
+	echo "">> $CMLOGPATH
+	echo $2 "File permissions changed: ">> $CMLOGPATH
+	ls -l $2 >> $CMLOGPATH
 elif [[ $1 == -w ]]; then
 	chmod 222 $2
 	echo $2 "set to write-only"
-	echo "">>~/clog/chmodded.log
-        echo $2 "File permissions changed: ">>~/clog/chmodded.log
-        ls -l $2 >> ~/clog/chmodded.log
+	echo "">>$CMLOGPATH
+        echo $2 "File permissions changed: ">> $CMLOGPATH
+        ls -l $2 >> $CMLOGPATH
 elif [[ $1 == -x ]]; then
         chmod 111 $2
         echo $2 "set to execute-only"
-        echo "">>~/clog/chmodded.log
-        echo $2 "File permissions changed: ">>~/clog/chmodded.log
-        ls -l $2 >> ~/clog/chmodded.log
+        echo "">>$CMLOGPATH
+        echo $2 "File permissions changed: ">>$CMLOGPATH
+        ls -l $2 >> $CMLOGPATH
 elif [[ $1 == -r+ ]]; then
         chmod 666 $2
         echo $2 "set to read-write"
-        echo "">>~/clog/chmodded.log
-        echo $2 "File permissions changed: ">>~/clog/chmodded.log
-        ls -l $2 >> ~/clog/chmodded.log
+        echo "">>$CMLOGPATH
+        echo $2 "File permissions changed: ">>$CMLOGPATH
+        ls -l $2 >> $CMLOGPATH
 elif [[ $1 == -w+ ]]; then
         chmod 333 $2
         echo $2 "set to write-execute"
-        echo "">>~/clog/chmodded.log
-        echo $2 "File permissions changed: ">>~/clog/chmodded.log
-        ls -l $2 >> ~/clog/chmodded.log
+        echo "">>$CMLOGPATH
+        echo $2 "File permissions changed: ">>$CMLOGPATH
+        ls -l $2 >> $CMLOGPATH
 elif [[ $1 == -x+ ]]; then
         chmod 555 $2
         echo $2 "set to read-execute"
-        echo "">>~/clog/chmodded.log
-        echo $2 "File permissions changed: ">>~/clog/chmodded.log
-        ls -l $2 >> ~/clog/chmodded.log
+        echo "">>$CMLOGPATH
+        echo $2 "File permissions changed: ">>$CMLOGPATH
+        ls -l $2 >> $CMLOGPATH
 elif [[ $1 == -a ]]; then
         chmod 222 $2
         echo "All permisions granted to all users for" $2
-        echo "">>~/clog/chmodded.log
-        echo $2 "File permissions changed: ">>~/clog/chmodded.log
-        ls -l $2 >> ~/clog/chmodded.log
+        echo "">>$CMLOGPATH
+        echo $2 "File permissions changed: ">>$CMLOGPATH
+        ls -l $2 >> $CMLOGPATH
 elif [[ $1 == 1 ]]; then
 	echo "Modify user permission mode"
 	if [[ $2 == -r ]]; then
 	        chmod u+r $3
                 echo $3 "Set to read-only"
-	        echo "">>~/clog/chmodded.log
-	        echo $3 "File permissions changed: ">>~/clog/chmodded.log
-        	ls -l $3 >> ~/clog/chmodded.log
+	        echo "">>$CMLOGPATH
+	        echo $3 "File permissions changed: ">>$CMLOGPATH
+        	ls -l $3 >> $CMLOGPATH
 	elif [[ $2 == -w ]]; then
         	chmod u+w $3
         	echo $3 "set to write-only"
-        	echo "">>~/clog/chmodded.log
-        	echo $3 "File permissions changed: ">>~/clog/chmodded.log
-        	ls -l $3 >> ~/clog/chmodded.log
+        	echo "">>$CMLOGPATH
+        	echo $3 "File permissions changed: ">>$CMLOGPATH
+        	ls -l $3 >> $CMLOGPATH
 	elif [[ $3 == -x ]]; then
         	chmod u+x $3
         	echo $3 "set to execute-only"
-        	echo "">>~/clog/chmodded.log
-        	echo $3 "File permissions changed: ">>~/clog/chmodded.log
-        	ls -l $3 >> ~/clog/chmodded.log
+        	echo "">>$CMLOGPATH
+        	echo $3 "File permissions changed: ">>$CMLOGPATH
+        	ls -l $3 >> $CMLOGPATH
 	elif [[ $2 == -r+ ]]; then
         	chmod u+rw $3
         	echo $3 "set to read-write"
-        	echo "">>~/clog/chmodded.log
-        	echo $3 "File permissions changed: ">>~/clog/chmodded.log
-        	ls -l $3 >> ~/clog/chmodded.log
+        	echo "">>$CMLOGPATH
+        	echo $3 "File permissions changed: ">>$CMLOGPATH
+        	ls -l $3 >> $CMLOGPATH
 	elif [[ $2 == -w+ ]]; then
         	chmod u+wx $3
         	echo $3 "set to write-execute"
-        	echo "">>~/clog/chmodded.log
-        	echo $3 "File permissions changed: ">>~/clog/chmodded.log
-        	ls -l $3 >> ~/clog/chmodded.log
+        	echo "">>$CMLOGPATH
+        	echo $3 "File permissions changed: ">>$CMLOGPATH
+        	ls -l $3 >> $CMLOGPATH
 	elif [[ $2 == -x+ ]]; then
         	chmod u+rx $3
         	echo $3 "set to read-execute"
-        	echo "">>~/clog/chmodded.log
-        	echo $3 "File permissions changed: ">>~/clog/chmodded.log
-        	ls -l $3 >> ~/clog/chmodded.log
+        	echo "">>$CMLOGPATH
+        	echo $3 "File permissions changed: ">>$CMLOGPATH
+        	ls -l $3 >> $CMLOGPATH
 	elif [[ $2 == -a ]]; then
         	chmod u+rwx $3
-        	echo "All permisions granted to all users for" $2
-        	echo "">>~/clog/chmodded.log
-        	echo $3 "File permissions changed: ">>~/clog/chmodded.log
-        	ls -l $3 >> ~/clog/chmodded.log
+        	echo "All permisions granted for" $2
+        	echo "">>$CMLOGPATH
+        	echo $3 "File permissions changed: ">>$CMLOGPATH
+        	ls -l $3 >> $CMLOGPATH
         fi
         
 elif [[ $1 == 2 ]]; then
         echo "Modify group permission mode"
         if [[ $2 == -r ]]; then
                 chmod g+r $3
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -w ]]; then
                 chmod g+w $3
                 echo $3 "set to write-only"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $3 == -x ]]; then
                 chmod g+x $3
                 echo $3 "set to execute-only"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -r+ ]]; then
                 chmod g+rw $3
                 echo $3 "set to read-write"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -w+ ]]; then
                 chmod g+wx $3
                 echo $3 "set to write-execute"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -x+ ]]; then
                 chmod g+rx $3
                 echo $3 "set to read-execute"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -a ]]; then
                 chmod g+rwx $3
-                echo "All permisions granted to all users for" $2
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "All permisions granted for" $2
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         fi
 elif [[ $1 == 3 ]]; then
         echo "Modify others permission mode"
         if [[ $2 == -r ]]; then
                 chmod o+r $3
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -w ]]; then
                 chmod o+w $3
                 echo $3 "set to write-only"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $3 == -x ]]; then
                 chmod o+x $3
                 echo $3 "set to execute-only"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -r+ ]]; then
                 chmod o+rw $3
                 echo $3 "set to read-write"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -w+ ]]; then
                 chmod o+wx $3
                 echo $3 "set to write-execute"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -x+ ]]; then
                 chmod o+rx $3
                 echo $3 "set to read-execute"
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         elif [[ $2 == -a ]]; then
                 chmod o+rwx $3
-                echo "All permisions granted to all users for" $2
-                echo "">>~/clog/chmodded.log
-                echo $3 "File permissions changed: ">>~/clog/chmodded.log
-                ls -l $3 >> ~/clog/chmodded.log
+                echo "All permisions granted for" $2
+                echo "">>$CMLOGPATH
+                echo $3 "File permissions changed: ">>$CMLOGPATH
+                ls -l $3 >> $CMLOGPATH
         fi
 else
 	echo "WARNING, ONLY USING THE FLAG WILL APPLY THE PERMISSIONS TO ALL USERS
